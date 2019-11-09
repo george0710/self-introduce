@@ -9,8 +9,11 @@
           </span>
         </li>
 
-        <li v-for="(timeLineItem, index) in timeLine.items" :key="index+'_'+timeLineIndex">
-          <i class="fa fa-envelope bg-blue"></i>
+        <li v-for="(timeLineItem, index) in timeLine.data" :key="index+'_'+timeLineIndex">
+          <i
+            class="fa fa-flash"
+            :class="['bg-'+colors[timeLineIndex]]"
+          ></i>
           <TimeLine
             :item='timeLineItem'
            />
@@ -21,58 +24,37 @@
 </template>
 
 <script>
-
+import axios from 'axios';
 import TimeLine from '@/components/TimeLine.vue';
+
+var sid = 'AKfycbzByUUk_WY0BRsav2IBlrXMYw6llMsstqjOGZS1m2MwmdQ_JD0';
+var ssJsonUrl = 'https://script.google.com/macros/s/'+sid+'/exec';
 
 export default {
   name: 'SelfIntrodude',
   components: {
     TimeLine
   },
+  created() {
+    var that = this;
+    axios.get(ssJsonUrl)
+      .then(function (response) {
+        console.log(response.data);
+        that.timeLines = response.data;
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  },
   data() {
     return {
-      timeLines: [
-        {
-          date: '2019/04/01',
-          items: [
-            {
-              time: '2019/05/01 ~ 今',
-              header: '【プライベート】単語の意味をSNSアプリ開発',
-              body: 'WikipediaのSNS版みたいなのを作りたくなって作り出す',
-              tags: ['vue', 'dokcer', 'Firebase', 'Cloud Firestore', 'cordova'],
-              status: 'private'
-            },
-            {
-              time: '2019/09/15 ~ 今',
-              header: '【業務】ニュース配信サービス開発',
-              body: 'Content goes here',
-              tags: ['Laravel', 'docker', 'mysql'],
-              status: 'work'
-            }
-          ]
-        },
-        {
-          date: '2018/04/01',
-          items: [
-            {
-              time: '2019/05/01 ~ 今',
-              header: '【プライベート】単語の意味をSNSアプリ開発',
-              body: 'WikipediaのSNS版みたいなのを作りたくなって作り出す',
-              tags: ['vue', 'dokcer', 'Firebase', 'Cloud Firestore', 'cordova'],
-              status: 'private'
-            },
-            {
-              time: '2019/09/01 ~ 今',
-              header: '【業務】ニュース配信サービス開発',
-              body: 'Content goes here',
-              tags: ['Laravel', 'docker', 'mysql'],
-              status: 'work'
-            }
-          ]
-        }
-      ],
+      timeLines: [],
       colors: ['teal', 'purple', 'orange', 'maroon']
     };
   }
 };
 </script>
+
+<style lang="scss">
+
+</style>
