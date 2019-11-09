@@ -10,13 +10,13 @@
     <div class="timeline-footer">
       <hr>
       <i class="fa fa-pencil margin-r-5"></i> 使用技術
-      <p>
-        <span v-for="(tag, tagIndex) in item.tags"
-          class="label label-danger"
+      <div>
+        <span v-for="(tag, tagIndex) in item.tags.split(',')"
+          class="label label-primary tag"
           :key="tagIndex">
           {{ tag }}
         </span>
-      </p>
+      </div>
     </div>
   </div>
 </template>
@@ -35,4 +35,12 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+.timeline-body {
+  white-space:pre-wrap;
+  word-wrap:break-word;;
+}
+.tag{
+  margin: 0px 4px;
+  font-size: 84% !important;
+}
 </style>
