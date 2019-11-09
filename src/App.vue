@@ -3,7 +3,7 @@
     <div class="wrapper">
        <MyHeader></MyHeader>
        <MyAside></MyAside>
-       <div class="content-wrapper">
+       <div class="content-wrapper main-content">
          <router-view/>
         </div>
     </div>
@@ -22,4 +22,7 @@ export default {
 };
 </script>
 <style lang="scss">
+.main-content {
+  padding: 16px;
+}
 </style>
