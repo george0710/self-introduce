@@ -39,11 +39,9 @@ export default {
     var that = this;
     axios.get(ssJsonUrl)
       .then(function (response) {
-        console.log(response.data);
         that.timeLines = response.data;
       })
       .catch(function (error) {
-        console.log(error);
       });
   },
   data() {
