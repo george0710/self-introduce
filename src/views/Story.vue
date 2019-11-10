@@ -68,9 +68,6 @@ export default {
           return sheet;
         });
         _this.timeLines = data;
-      })
-      .catch(function (error) {
-        console.log(error);
       });
     this.isloaded = true;
   },
