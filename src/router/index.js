@@ -1,14 +1,20 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import SelfIntrodude from '@/views/SelfIntrodude.vue';
+import Home from '@/views/Home.vue';
+import Story from '@/views/Story.vue';
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: '/',
-    name: 'SelfIntrodude',
-    component: SelfIntrodude
+    name: 'Home',
+    component: Home
+  },
+  {
+    path: '/story',
+    name: 'Story',
+    component: Story
   }
 ];
 
