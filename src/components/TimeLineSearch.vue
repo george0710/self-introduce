@@ -1,6 +1,9 @@
 <template>
   <div style="text-align: right;">
-    <label v-for="(checkBox,index) in checkBoxList" :key="index">
+    <label
+      v-for="(checkBox,index) in checkBoxList"
+      :key="index"
+    >
       <CheckBox
         :id='checkBox.id'
         @changeChecked='changeChecked'
@@ -32,6 +35,11 @@ export default {
         {
           id: 'qualification',
           label: '資格',
+          isChecked: true
+        },
+        {
+          id: 'another',
+          label: 'その他',
           isChecked: true
         },
       ]

@@ -13,8 +13,7 @@
             <i class="fa fa-circle-o text-yellow"></i> <span>Story</span>
           </router-link>
         </li>
-        <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Contact</span></a></li>
-    </ul>
+      </ul>
     </section>
     <!-- /.sidebar -->
   </aside>
