@@ -8,7 +8,11 @@
             <i class="fa fa-circle-o text-red"></i> <span>TOP</span>
           </router-link>
         </li>
-        <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Story</span></a></li>
+        <li>
+          <router-link to="/story">
+            <i class="fa fa-circle-o text-yellow"></i> <span>Story</span>
+          </router-link>
+        </li>
         <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Contact</span></a></li>
     </ul>
     </section>

@@ -3,6 +3,8 @@
     <span class="time"><i class="fa fa-clock-o"></i> {{ item.time }}</span>
     <h3 class="timeline-header">
       {{ item.header }}
+
+      <a v-if="item.link" :href="item.link" target='_blank'>リンクはこちら</a>
     </h3>
     <div class="timeline-body">
       {{ item.body }}
@@ -10,13 +12,15 @@
     <div class="timeline-footer">
       <hr>
       <i class="fa fa-pencil margin-r-5"></i> 使用技術
-      <div>
-        <span v-for="(tag, tagIndex) in item.tags.split(',')"
-          class="label label-primary tag"
-          :key="tagIndex">
-          {{ tag }}
+        <span
+          v-for="(tag, tagIndex) in item.tags.split(',')"
+          :key="tagIndex"
+          class="tags"
+        >
+          <span class="label label-primary tag">
+            {{ tag }}
+          </span>
         </span>
-      </div>
     </div>
   </div>
 </template>
@@ -39,8 +43,16 @@ export default {
   white-space:pre-wrap;
   word-wrap:break-word;;
 }
+
+.timeline-footer {
+  word-wrap: break-word;
+}
 .tag{
   margin: 0px 4px;
   font-size: 84% !important;
+}
+.tags{
+  margin: 2px 0px;
+  line-height: 24px;
 }
 </style>
